@@ -1,0 +1,15 @@
+# Copyright Softmagic. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+server {
+    listen 8080;
+    
+    index index.html;
+    root /usr/share/nginx/www;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}

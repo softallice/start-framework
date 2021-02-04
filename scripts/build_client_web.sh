@@ -8,10 +8,16 @@ set -e
 
 echo "Building client-web"
 
-mkdir -p ./build/bin/wallet-web
+echo "build folder create"
+mkdir -p ./build/bin/client-web
 
-cd cmd/wallet-web
+cd client
+
+echo "node-module delete"
+rm -rf node_modules
+
+echo "npm install & quasar build"
 npm install
-npm run build
+quasar build 
 
-cp -R dist/* ../../build/bin/wallet-web
+cp -R dist/* ../build/bin/client-web
