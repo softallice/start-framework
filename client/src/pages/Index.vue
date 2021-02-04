@@ -29,9 +29,9 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      count: state => state.notifications.count
-    })
+    // ...mapState({
+    //   count: state => state.notifications.count
+    // })
   },
   mounted () {
     const data = {
@@ -40,9 +40,9 @@ export default {
       total: 0
     } ;
       // store.dispatch('notifications/setNotificationCount', data)
-    this.getToken();
+    // this.getToken();
     // this.$store.commit("enableNotifications")
-    this.enableNoti();
+    // this.enableNoti();
 
     // messaging.requestPermission().then(response => {
     //   alert('You have successfully enabled push notifications')

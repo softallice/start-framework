@@ -1,7 +1,7 @@
 import firebase from 'firebase/app'
 import { LocalStorage } from "quasar";
 
-console.log('state------')
+// console.log('state------')
 
 export default function() {
   return {

@@ -52,6 +52,8 @@ const routes = [
       {path: '/Taskboard', component: () => import('pages/TaskBoard.vue')},
       {path: '/Ecommerce', component: () => import('pages/ProductCatalogues.vue')},
       {path: '/Test', component: () => import('pages/Test.vue')},
+      {path: '/Vaccination', component: () => import('pages/vaccination/Vaccination.vue')},
+      {path: '/Credential', component: () => import('pages/credential/Credential.vue')},
     ]
   },
   {

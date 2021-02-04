@@ -141,6 +141,25 @@
       :width="240"
     >
       <q-list>
+        <!-- vaccination -->
+        <q-item to="/Vaccination" active-class="q-item-no-link-highlighting">
+          <q-item-section avatar>
+            <q-icon name="hvac"/>
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Vaccination</q-item-label>
+          </q-item-section>
+        </q-item>
+        <!-- VC & Vault -->
+        <q-item to="/Credential" active-class="q-item-no-link-highlighting">
+          <q-item-section avatar>
+            <q-icon name="assignment_ind"/>
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Credential</q-item-label>
+          </q-item-section>
+        </q-item>
+
         <q-item to="/Dashboard" active-class="q-item-no-link-highlighting">
           <q-item-section avatar>
             <q-icon name="dashboard"/>
@@ -405,6 +424,7 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch("auth/logout");
+      window.localStorage.removeItem('pushToken');
     },
     showNotif () {
       this.$q.notify({

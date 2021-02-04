@@ -48,7 +48,7 @@ services:
         container_name: webui
         image: djenriquez/vault-ui
         ports:
-            - "8000:8000"
+            - "8020:8000"
         links:
             - vault:vault
         environment:

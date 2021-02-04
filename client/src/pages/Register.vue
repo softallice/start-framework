@@ -262,7 +262,7 @@ export default {
       this.formData.did = JSON.parse(did_data);
       // console.log('await this.getPushToken()', await this.getPushToken());
       
-      this.formData.pushToken = await this.getPushToken();
+      // this.formData.pushToken = await this.getPushToken();
       console.log('this.formData ', this.formData )
       
       this.$store.dispatch("account/registerUser", { formData: this.formData });

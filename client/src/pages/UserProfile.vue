@@ -6,6 +6,16 @@
           <q-card-section class="text-h6 ">
             <div class="text-h6">Edit Profile</div>
             <div class="text-subtitle2">Complete your profile</div>
+            <q-item class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <q-item-section side>
+                  <q-avatar size="100px">
+                    <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+                  </q-avatar>
+                </q-item-section>
+                <q-item-section>
+                  <q-btn label="Add Photo" class="text-capitalize" rounded color="info" style="max-width: 120px"></q-btn>
+                </q-item-section>
+              </q-item>
           </q-card-section>
           <q-card-section class="q-pa-sm">
             <q-list class="row">

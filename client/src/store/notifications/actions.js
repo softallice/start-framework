@@ -15,9 +15,9 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig)
 
-navigator.serviceWorker.addEventListener('message', event => {
-  console.log('Push Notification Recieved', event.data) // refresh code goes here  
-});
+// navigator.serviceWorker.addEventListener('message', event => {
+//   console.log('Push Notification Recieved', event.data) // refresh code goes here  
+// });
 
 
 // return messaging.getToken({ vapidKey: "BCyOnHzMBmyO7eRcYN7BbHMCIAM66PIoc0n6mqipfCfqK9L2-LgpJ5kE3liFWZrQK0Gm_K6WueeicsyNxh4jRCs" })
@@ -49,7 +49,7 @@ export function disableNotifications ({ commit }) {
 }
 
 export function enableNotifications ({ commit, dispatch }) {
-  console.log('commit -------------------')
+  // console.log('commit -------------------')
   commit('setLoading', true)
   return Notification.requestPermission().then((permission) => {
     if (permission === 'granted') {
