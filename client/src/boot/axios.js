@@ -47,7 +47,7 @@ axiosInstance.interceptors.response.use(
 Vue.prototype.$axiosInstance = axiosInstance;
 
 
-// sub URL --------------------------------> start
+// sub URL did create--------------------------------> start
 const subAxiosInstance = axios.create({ 
   baseURL: "http://172.27.42.55:8067",
   headers:{'Authorization': 'Bearer vcs_holder_rw_token'}
@@ -67,6 +67,19 @@ Vue.prototype.$subAxiosInstance = {
   ...subAxiosInstance,
   didCreate(payload) {
     return subAxiosInstance.post('/holder/profile', payload)
+  }
+};
+
+// sub URL did create--------------------------------> start
+const issueAxiosInstance = axios.create({ 
+  baseURL: "http://172.27.42.55:8070",
+  headers:{'Authorization': 'Bearer vcs_issuer_rw_token'}
+});
+
+Vue.prototype.$issueAxiosInstance = {
+  ...issueAxiosInstance,
+  vcCreate(payload) {
+    return issueAxiosInstance.post('/honeybloc-ed25519signature2018-ed25519/credentials/issueCredential', payload)
   }
 };
 

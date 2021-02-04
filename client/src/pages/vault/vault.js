@@ -10,7 +10,7 @@ const vault = require('node-vault')(options);
 
 
 // web ui > secret backends > new secret > get token
-vault.token = 's.TwzJ5b0sVE5lJ2pQoPQzEIGQ'
+vault.token = 's.4IaPyKgBGr1Z4dvYQHRiia7e'
 
 
 export default {

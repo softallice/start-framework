@@ -12,7 +12,6 @@
             </div>
           </div>
 
-        
           <div class="col-auto">
             <q-btn 
               color="primary" 
@@ -20,7 +19,15 @@
               label="Create VC"
               @click="card = true"
             />
-          </div>  
+          </div> 
+          <!-- <div class="col-auto">
+            <q-btn 
+              color="primary" 
+              icon="note_add" 
+              label="Create VC"
+              @click="createVc()"
+            />
+          </div>   -->
         </div>
       </q-card-section>
     </q-card>
@@ -60,7 +67,7 @@
     </q-list>
     <!-- pop up -->
     <q-dialog v-model="card">
-      <q-card class="my-card">
+      <q-card class="my-card" style="width: 700px; max-width: 80vw;">
         <!-- <table-custom-grid class="q-mt-lg"></table-custom-grid> -->
         <table-vc-list-grid class="q-mt-lg"></table-vc-list-grid>
       </q-card>
@@ -89,12 +96,15 @@ export default {
     }
   },
   mounted: function () {
-    this.getVc()
+    // this.createVc();
+    this.getVc();
+    
   },
   methods: {
     createVc: async function() {
       this.issueVc = await this.getIssueVc();
       console.log('this.issueVc', this.issueVc);
+      this.createVaultVc();
     },
     getVc: async function() {
       this.issueVcTest.push(JSON.parse(await this.getVaultVc()));

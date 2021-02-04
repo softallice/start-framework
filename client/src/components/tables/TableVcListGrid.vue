@@ -12,7 +12,10 @@
           <div class="q-pa-xs col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <!-- <card-profile :avatar="props.row.avatar" :name="props.row.name" :des="props.row.des"></card-profile>
              -->
-            <card-vc-profile :avatar="props.row.avatar" :name="props.row.name" :des="props.row.des"></card-vc-profile>
+            <card-vc-profile 
+              :avatar="props.row.avatar" 
+              :name="props.row.name" 
+              :des="props.row.des"></card-vc-profile>
           </div>
         </template>
       </q-table>
@@ -51,7 +54,7 @@ export default {
           des: 'Employee Card'
         },
         {
-          name: 'Seoul Metropolitan Library',
+          name: 'Seoul Library',
           Crated_Date: '10/2/2018',
           Project: 'Seoul Metropolitan Library',
           avatar: 'http://t1.daumcdn.net/brunch/service/user/ocv/image/Fw2rn8MZigT6fCvqc2ZOBmLkZLA.jpg',
