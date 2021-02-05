@@ -8,8 +8,6 @@ set -e
 
 echo "Frame-work dev-mod Start"
 
-
-
 cd client
 echo "delete node_modules..."
 rm -rf node_modules

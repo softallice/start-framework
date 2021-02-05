@@ -8,8 +8,8 @@ set -e
 
 echo "Building client-web"
 
-echo "build folder create"
-mkdir -p ./build/bin/client-web
+# echo "build folder create"
+# mkdir -p ./build/bin/client-web
 
 cd client
 
@@ -20,4 +20,5 @@ echo "npm install & quasar build"
 npm install
 quasar build 
 
-cp -R dist/* ../build/bin/client-web
+# bin file unuse
+# cp -R dist/* ../build/bin/client-web

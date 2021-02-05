@@ -1,7 +1,7 @@
 {
   "name": "api-v-2",
   "description": "",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "",
   "private": true,
   "main": "src",
@@ -10,7 +10,7 @@
   ],
   "author": {
     "name": "softmagic",
-    "email": "s991045@rachelcheuk.com"
+    "email": "s991045@gmail.com"
   },
   "contributors": [],
   "bugs": {},
@@ -26,8 +26,8 @@
   "scripts": {
     "test": "npm run lint && npm run jest",
     "lint": "eslint src/. test/. --config .eslintrc.json --fix",
-    "dev": "nodemon src/",
-    "start": "sequelize db:migrate && node src/",
+    "dev": "nodemon src/ && sequelize db:migrate && sequelize db:seed:all",
+    "start": "node src/",
     "jest": "jest  --forceExit"
   },
   "standard": {
