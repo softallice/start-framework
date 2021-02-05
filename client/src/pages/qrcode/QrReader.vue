@@ -1,6 +1,9 @@
 <template>
   <q-page>
     <div class="row">
+      <span class="text-subtitle2 text-red-9">
+          {{ devcomment }}
+      </span>
       <div
         v-if="!showCamera"
         class="col-12 text-center q-pt-md"
@@ -50,7 +53,8 @@ export default {
       isValid: undefined,
       camera: 'auto',
       result: null,
-      showCamera: false
+      showCamera: false,
+      devcomment: 'chrome://flags/#unsafely-treat-insecure-origin-as-secure 기능 활성화 및 테스트 url(포트 포함) 넣기 , 크롬에서 기기(카메라 등)의 제어가 가능, 테스트 용도로만 사용하고 실 환경에서는 https 구성하여 사용해야함'
     }
   },
   computed: {
