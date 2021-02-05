@@ -159,6 +159,25 @@
             <q-item-label>Credential</q-item-label>
           </q-item-section>
         </q-item>
+        <!-- Qrcode Generator -->
+        <q-item to="/Generator" active-class="q-item-no-link-highlighting">
+          <q-item-section avatar>
+            <q-icon name="qr_code"/>
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>QR Generator</q-item-label>
+          </q-item-section>
+        </q-item>
+        <!-- Qrcode Reader -->
+        <q-item to="/QrReader" active-class="q-item-no-link-highlighting">
+          <q-item-section avatar>
+            <q-icon name="qr_code_scanner"/>
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Qrcode Scanner</q-item-label>
+          </q-item-section>
+        </q-item>
+        <!-- Dashboard -->
 
         <q-item to="/Dashboard" active-class="q-item-no-link-highlighting">
           <q-item-section avatar>

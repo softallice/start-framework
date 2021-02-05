@@ -54,6 +54,8 @@ const routes = [
       {path: '/Test', component: () => import('pages/Test.vue')},
       {path: '/Vaccination', component: () => import('pages/vaccination/Vaccination.vue')},
       {path: '/Credential', component: () => import('pages/credential/Credential.vue')},
+      {path: '/Generator', component: () => import('pages/qrcode/Generator.vue')},
+      {path: '/QrReader', component: () => import('pages/qrcode/QrReader.vue')},
     ]
   },
   {
