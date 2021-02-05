@@ -1,6 +1,6 @@
-# Quasar/FeatherJS Demo with Auth/User roles (client)
+# Quasar/FeatherJS Framework DEMO with Auth/User roles and template (client)
 
-Quasar/FeatherJS Demo with Auth/User roles
+Quasar/FeatherJS Framework DEMO with Auth/User roles and template
 
 ## Install the dependencies
 ```bash

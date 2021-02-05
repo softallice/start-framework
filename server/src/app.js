@@ -26,9 +26,9 @@ const app = express(feathers());
 // Load app configuration
 app.configure(configuration());
 // Enable security, CORS, compression, favicon and body parsing
-// const whitelist = [app.get('client_url')] || [process.env.client_url] ;
+const whitelist = [app.get('client_url')] || [process.env.client_url] ;
 
-const whitelist = ['http://172.27.42.206:8085', 'http://localhost:8085','http://localhost:8080', 'http://172.27.42.184:8085','http://localhost:8200', 'http://172.27.42.206:8085'];
+// const whitelist = ['http://172.27.42.206:8085', 'http://localhost:8085','http://localhost:8080', 'http://172.27.42.184:8085','http://localhost:8200', 'http://172.27.42.206:8085'];
 
 console.log('whitelist : ', whitelist);
 const corsOptions = {

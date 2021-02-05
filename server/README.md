@@ -1,60 +1,13 @@
-# featherjs-api
-
-
-docker run -d \
-    --name postgresql \
-    -p 5432:5432 \
-    -e POSTGRES_USERNAME=myuser \
-    -e POSTGRES_PASSWORD=mypassword \
-    -e POSTGRES_DBNAME=mydb \
-    -e POSTGRES_EXTENSIONS=citext \
-    frodenas/postgresql
-
-
-sequelize migration:create --name="user"
-npx sequelize seed:generate --name user
-sequelize seed:generate --name activities
-
-
-
-sequelize db:migrate
-sequelize db:seed:all
-
-
-feathers generate service
-
-
-curl --location --request GET 'http://localhost:3030/activities' \
---header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6ImFjY2VzcyJ9.eyJpYXQiOjE2MTEyMTk4MzMsImV4cCI6MTYxMTMwNjIzMywiYXVkIjoiaHR0cHM6Ly95b3VyZG9tYWluLmNvbSIsImlzcyI6ImZlYXRoZXJzIiwic3ViIjoiNjAwOTQyZmQyZTU2ODQwMTNhYTZlNDQyIiwianRpIjoiNDQ3ZmVmZmEtODk2OC00NzNjLThmYjQtMDA4ZGFjOGQ2MWU3In0.2dVV96JlaWh8n2P7drEC25yJtcLNeKq5le8e9hQVCWU'
-
+## featherjs-api
+featherjs와 sequelizer(ORM)을 사용하여 구성
+- 로그인 및 사용자 관리 : mangoDB
+- 비즈니스 로직 처리 : postgresql
 
 ## About
 
 This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
 
-## Getting Started
-
-Getting up and running is as easy as 1, 2, 3.
-
-1. Make sure you have [NodeJS](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
-2. Install your dependencies
-
-   ```
-   cd path/to/api-v-2
-   npm install
-   ```
-
-3. Start your app
-
-   ```
-   npm start
-   ```
-
-## Testing
-
-Simply run `npm test` and all your tests in the `test/` directory will be run.
-
-## Scaffolding
+## featherjs cli 명령어(기능요소 템플릿 자동 생성)
 
 Feathers has a powerful command line interface. Here are a few things it can do:
 
@@ -64,6 +17,33 @@ $ npm install -g @feathersjs/cli          # Install Feathers CLI
 $ feathers generate service               # Generate a new Service
 $ feathers generate hook                  # Generate a new Hook
 $ feathers help                           # Show all commands
+```
+
+## sequalize cli 명령어(기능요소 템플릿 자동 생성 및 마이그레이션)
+예제 
+```sh
+sequelize migration:create --name="user"
+```
+```sh
+sequelize-cli db:migrate                        Run pending migrations
+  sequelize-cli db:migrate:schema:timestamps:add  Update migration table to have timestamps
+  sequelize-cli db:migrate:status                 List the status of all migrations
+  sequelize-cli db:migrate:undo                   Reverts a migration
+  sequelize-cli db:migrate:undo:all               Revert all migrations ran
+  sequelize-cli db:seed                           Run specified seeder
+  sequelize-cli db:seed:undo                      Deletes data from the database
+  sequelize-cli db:seed:all                       Run every seeder
+  sequelize-cli db:seed:undo:all                  Deletes data from the database
+  sequelize-cli db:create                         Create database specified by configuration
+  sequelize-cli db:drop                           Drop database specified by configuration
+  sequelize-cli init                              Initializes project
+  sequelize-cli init:config                       Initializes configuration
+  sequelize-cli init:migrations                   Initializes migrations
+  sequelize-cli init:models                       Initializes models
+  sequelize-cli init:seeders                      Initializes seeders
+  sequelize-cli migration:generate                Generates a new migration file [aliases: migration:create]
+  sequelize-cli model:generate                    Generates a model and its migration [aliases: model:create]
+  sequelize-cli seed:generate                     Generates a new seed file [aliases: seed:create]
 ```
 
 ## Help

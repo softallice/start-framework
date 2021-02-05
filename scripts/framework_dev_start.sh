@@ -8,11 +8,12 @@ set -e
 
 echo "Frame-work dev-mod Start"
 
-cd client
-echo "delete node_modules..."
-rm -rf node_modules
-
-cd ..
+if [$DEV_MOD == 'NEW'] ; then
+    cd client
+    echo "delete node_modules..."
+    sudo rm -rf node_modules
+    cd ..
+fi
 
 echo "docker start..."
 docker-compose -f docker-compose-dev.yml down 

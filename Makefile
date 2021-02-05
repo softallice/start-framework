@@ -1,4 +1,3 @@
-
 ############################################################################
 # Client Web(quasar) 
 # 1. Quasar build
@@ -34,24 +33,24 @@ api-server-docker:
 # 4. clean
 ############################################################################
 # starting vault server
-.PHONY: vault-start
-vault-start:
-	@vault/start.sh
+# .PHONY: vault-start
+# vault-start:
+# 	@vault/start.sh
 
-# stop vault server
-.PHONY: vault-stop
-vault-stop:
-	@vault/stop.sh
+# # stop vault server
+# .PHONY: vault-stop
+# vault-stop:
+# 	@vault/stop.sh
 
-# backup vault server
-.PHONY: vault-backup
-vault-backup:
-	@vault/backup.sh
+# # backup vault server
+# .PHONY: vault-backup
+# vault-backup:
+# 	@vault/backup.sh
 
-# clean vault server
-.PHONY: vault-clean
-vault-clean:
-	@vault/stop_clean_all.sh
+# # clean vault server
+# .PHONY: vault-clean
+# vault-clean:
+# 	@vault/stop_clean_all.sh
 
 ############################################################################
 # Dev Mod & Operation Mod
@@ -61,6 +60,14 @@ vault-clean:
 # starting frame-work in dev mode for hot deployment
 .PHONY: framework-dev-start
 framework-dev-start:
+	@echo "Dev Start"
+	@scripts/framework_dev_start.sh
+
+# starting frame-work in dev mode for hot deployment
+.PHONY: framework-dev-start-new
+framework-dev-start-new:
+	@echo "Delete node_module and Dev Start"
+	@DEV_MOD=NEW
 	@scripts/framework_dev_start.sh
 
 # starting frame-work in dev mode for hot deployment
