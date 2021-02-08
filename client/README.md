@@ -1,13 +1,15 @@
-# Quasar/FeatherJS Framework DEMO with Auth/User roles and template (client)
+# Quasar/FeatherJS Framework 사용자 인증/관리 및 화면 템플릿
 
-Quasar/FeatherJS Framework DEMO with Auth/User roles and template
+Quasar/FeatherJS Framework 기반의 템플릿
 
 ## Install the dependencies
 ```bash
 yarn
+or 
+npm install
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+### Start the app in development mode
 ```bash
 quasar dev
 ```
