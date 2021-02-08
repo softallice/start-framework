@@ -27,7 +27,7 @@ export default {
   name: 'Generator',
   data () {
     return {
-      text: 'https://nds.nongshim.co.kr/main.do'
+      text: 'https://www.naver.com/'
     }
   },
   methods: {

@@ -10,7 +10,7 @@
       >
           <img
           alt="Framework logo"
-          src="../../assets/img/nds-qrcode.png"
+          src="../../assets/img/qrcode-sample.png"
           style="width: 340px"
         >
       </div>
