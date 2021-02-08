@@ -68,20 +68,20 @@
 
 ### 개발 모드
 ```sh
-cd project
+cd start-framework
 make framework-dev-start
 ```
 
 ### 운영 모드
 ```sh
-cd project
+cd start-framework
 make framework-prod-start
 ```
 
 ### vault 실행
 ```sh
-cd project/vault
-./start.sh
+cd start-framework
+make vault-start.sh
 ```
 
 ### 시스템 실행 화면
