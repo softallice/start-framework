@@ -4,13 +4,14 @@
 # 2. Make Docker
 ############################################################################
 # build quasar 
-.PHONY: client-web
-client-web:
+.PHONY: build-client-web
+build-client-web:
 	@scripts/build_client_web.sh
 
 # Build client-web Dockerize
+# docker build -f Dockerfile --no-cache -t softmagic/client-web:latest .
 .PHONY: client-web-docker
-client-web-docker: client-web
+client-web-docker: build-client-web
 	@echo "Building client-web docker image"
 	@scripts/client_web_docker.sh
 

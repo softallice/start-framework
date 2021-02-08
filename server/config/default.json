@@ -6,7 +6,7 @@
   "smtp_user": "softmagic",
   "smtp_pw": "s0610028",
   "from_email": "no-reply@test.com",
-  "client_url": "http://172.27.42.206:8085",
+  "client_url": "http://client-web.softmagic.local",
   "client_url_test": "172.27.42.206",
   "api_url": "http://172.27.42.206:3030/",
   "smtp_host": "smtp.naver.com",

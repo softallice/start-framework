@@ -4,8 +4,10 @@ services:
     image: softmagic/client-web:latest
     # volumes:
     #   - mongodb_container:/data/db
+    environment:
+      - VIRTUAL_HOST=client.softmagic.local
     ports:
-      - 8085:8080
+      - 8085:80
     depends_on:
       - mongo
       - postgresql
@@ -16,6 +18,8 @@ services:
     image: softmagic/api-server:latest
     # volumes:
     #   - ./server:/server
+    environment:
+      - VIRTUAL_HOST=server.softmagic.local
     ports:
       - 3030:3030
     depends_on:
@@ -47,9 +51,24 @@ services:
     networks:
       - product-net
 
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      # - 443:443
+      - 80:80
+    volumes:
+      # - ../keys/tls:/etc/nginx/certs
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    networks:
+      product-net:
+        aliases:
+          - client.softmagic.local
+          - server.softmagic.local
+
 volumes:
   mongodb_container:
   postgresql_container:
 
 networks:
   product-net:
+    driver: bridge

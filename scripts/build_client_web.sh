@@ -14,7 +14,7 @@ echo "Building client-web"
 cd client
 
 echo "node-module delete"
-rm -rf node_modules
+sudo rm -rf node_modules
 
 echo "npm install & quasar build"
 npm install
