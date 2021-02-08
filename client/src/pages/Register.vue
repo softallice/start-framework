@@ -267,6 +267,7 @@ export default {
       
       this.$store.dispatch("account/registerUser", { formData: this.formData });
     },
+    // DID create and test
     getDid: async function () { 
       const didData=JSON.stringify({
                 "name": this.formData.email,
@@ -285,6 +286,7 @@ export default {
 
       return did_test;
     },
+    // firebase token create and test
     getPushToken: async function () {
       var pushToken;
       await this.getToken()

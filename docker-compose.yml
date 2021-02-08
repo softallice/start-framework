@@ -10,7 +10,7 @@ services:
       - mongo
       - postgresql
     networks:
-      - demo-net
+      - product-net
 
   server:
     image: softmagic/api-server:latest
@@ -21,6 +21,8 @@ services:
     depends_on:
       - mongo
       - postgresql
+    networks:
+      - product-net
     
   postgresql:
     image: frodenas/postgresql
@@ -34,7 +36,7 @@ services:
     volumes:
       - postgresql_container:/var/lib/postgresql/data
     networks:
-        - demo-net
+        - product-net
 
   mongo:
     image: mongo:latest
@@ -43,11 +45,11 @@ services:
     volumes:
       - mongodb_container:/data/db
     networks:
-      - demo-net
+      - product-net
 
 volumes:
   mongodb_container:
   postgresql_container:
 
 networks:
-  demo-net:
+  product-net:

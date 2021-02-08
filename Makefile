@@ -33,24 +33,24 @@ api-server-docker:
 # 4. clean
 ############################################################################
 # starting vault server
-# .PHONY: vault-start
-# vault-start:
-# 	@vault/start.sh
+.PHONY: vault-start
+vault-start:
+	@scripts/vault_start.sh
 
-# # stop vault server
-# .PHONY: vault-stop
-# vault-stop:
-# 	@vault/stop.sh
+# stop vault server
+.PHONY: vault-stop
+vault-stop:
+	@scripts/vault_stop.sh
 
-# # backup vault server
-# .PHONY: vault-backup
-# vault-backup:
-# 	@vault/backup.sh
+# backup vault server
+.PHONY: vault-backup
+vault-backup:
+	@scripts/vault_backup.sh
 
-# # clean vault server
-# .PHONY: vault-clean
-# vault-clean:
-# 	@vault/stop_clean_all.sh
+# clean vault server
+.PHONY: vault-clean
+vault-clean:
+	@scripts/vault_stop_clean_all.sh
 
 ############################################################################
 # Dev Mod & Operation Mod
