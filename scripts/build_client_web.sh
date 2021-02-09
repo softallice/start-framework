@@ -13,6 +13,9 @@ echo "Building client-web"
 
 cd client
 
+echo "dist folder delete"
+rm -rf dist
+
 echo "node-module delete"
 sudo rm -rf node_modules
 

@@ -4,11 +4,21 @@
 #
 
 server {
-    listen 8080;
+    listen 80;
+    listen 443 ssl;
+
+    ssl_certificate ${TLS_CERT};
+    ssl_certificate_key ${TLS_KEY};
+    ssl_protocols TLSv1.2 TLSv1.3;
+
     server_name  client-web;
     
     index index.html;
     root /usr/share/nginx/www;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
 
 #    access_log logs/{{name}}.access.log main;
 #    error_log logs/{{name}}.error.log debug;
@@ -39,7 +49,5 @@ server {
 #        expires max;
 #    }
 
-    location / {
-        try_files $uri $uri/ /index.html;
-    }
+    
 }

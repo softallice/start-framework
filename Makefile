@@ -76,7 +76,25 @@ framework-dev-start-new:
 framework-prod-start:
 	@scripts/framework_prod_start.sh
 
+############################################################################
+# SSL(TLS) Certificate Key
+# 1. generate ssl key(open ssl)
+############################################################################
+.PHONY: generate-test-keys
+generate-test-keys:
+	@mkdir -p -p nginx/keys/tls
+	@docker run -i --rm \
+		-v $(abspath .):/opt/workspace/softmagic \
+		--entrypoint "/opt/workspace/softmagic/scripts/generate_test_keys.sh" \
+		frapsoft/openssl
 
+# .PHONY: local-setup
+# local-setup: local-remove generate-test-keys
+# 	@scripts/local_setup.sh
+
+# .PHONY: local-remove
+# local-remove:
+# 	rm -Rf ~/.softmagic-local/
 
 
 
