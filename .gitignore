@@ -25,6 +25,8 @@ build/Release
 node_modules
 
 nginx/config
+nginx/keys
+
 
 # Users Environment Variables
 .lock-wscript
