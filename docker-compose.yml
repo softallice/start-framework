@@ -12,13 +12,13 @@ services:
       - TLS_CERT=/etc/nginx/certs/softmagic.local.crt
       - TLS_KEY=/etc/nginx/certs/softmagic.local.key
     ports:
-      - 8085:443
+      - 8085:80
     depends_on:
       - mongo
       - postgresql
     networks:
       - product-net
-
+  
   server:
     image: softmagic/api-server:latest
     # volumes:
@@ -26,6 +26,7 @@ services:
     environment:
       - VIRTUAL_HOST=server.softmagic.local
       # - VIRTUAL_PORT=3030
+    restart: always
     ports:
       - 3030:3030
     depends_on:
@@ -61,19 +62,21 @@ services:
     image: jwilder/nginx-proxy
     ports:
       - 443:443
-      # - 80:80
+      - 80:80
     volumes:
       - ./nginx//keys/tls:/etc/nginx/certs
       - ./nginx/log:/var/log/nginx 
       - ./nginx/vhost.d:/etc/nginx/vhost.d
       - ./nginx/config:/etc/nginx/conf.d
       - /var/run/docker.sock:/tmp/docker.sock:ro
+    environment:
+      - DEFAULT_HOST=softmagic.local
     networks:
-      - product-net
-      # product-net:
-      #   aliases:
-      #     - client.softmagic.local
-      #     - server.softmagic.local
+      # - product-net
+      product-net:
+        aliases:
+          - client.softmagic.local
+          - server.softmagic.local
  
 volumes:
   mongodb_container:
@@ -82,3 +85,6 @@ volumes:
 networks:
   product-net:
     driver: bridge
+    # external: true
+
+  

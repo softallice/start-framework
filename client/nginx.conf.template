@@ -12,9 +12,11 @@ server {
     ssl_protocols TLSv1.2 TLSv1.3;
 
     server_name  client-web;
-    
+
+    root /usr/share/nginx/html;
     index index.html;
-    root /usr/share/nginx/www;
+    
+#    root /usr/share/nginx/www;
 
     location / {
         try_files $uri $uri/ /index.html;

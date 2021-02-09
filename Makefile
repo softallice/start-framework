@@ -67,13 +67,14 @@ framework-dev-start:
 # starting frame-work in dev mode for hot deployment
 .PHONY: framework-dev-start-new
 framework-dev-start-new:
+	@sudo rm -rf client/node_module
 	@echo "Delete node_module and Dev Start"
-	@DEV_MOD=NEW
 	@scripts/framework_dev_start.sh
 
 # starting frame-work in dev mode for hot deployment
 .PHONY: framework-prod-start
 framework-prod-start:
+	# @docker network create product-net
 	@scripts/framework_prod_start.sh
 
 ############################################################################
@@ -87,6 +88,7 @@ generate-test-keys:
 		-v $(abspath .):/opt/workspace/softmagic \
 		--entrypoint "/opt/workspace/softmagic/scripts/generate_test_keys.sh" \
 		frapsoft/openssl
+	
 
 # .PHONY: local-setup
 # local-setup: local-remove generate-test-keys

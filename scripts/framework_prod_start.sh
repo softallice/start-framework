@@ -19,3 +19,5 @@ echo "Frame-work prod-mod Start"
 
 docker-compose -f docker-compose-prod.yml up --force-recreate
 
+#docker-compose -f docker-compose.yml -f docker-compose-revers.yml up
+

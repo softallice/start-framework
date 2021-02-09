@@ -1,0 +1,27 @@
+version: '3.3'
+services:
+  
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - 443:443
+      - 80:80
+    volumes:
+      - ./nginx//keys/tls:/etc/nginx/certs
+      - ./nginx/log:/var/log/nginx 
+      - ./nginx/vhost.d:/etc/nginx/vhost.d
+      - ./nginx/config:/etc/nginx/conf.d
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    networks:
+      # - product-net
+      product-net:
+        aliases:
+          - client.softmagic.local
+          - server.softmagic.local
+
+networks:
+  product-net:
+    driver: bridge
+    # external: true
+
+  

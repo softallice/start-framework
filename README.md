@@ -92,3 +92,14 @@ make vault-start.sh
     2. Secret Backends > add new secret backend(type : kv ) 생성
     3. System > policies > add policy 생성
     4. Auth Backends > token > new token(위에서 설정한 policy 적용)
+
+
+### docker clean
+```sh
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+docker rmi $(docker images -f "dangling=true" -q)
+docker volume rm $(docker volume ls -qf dangling=true)
+```
+
+

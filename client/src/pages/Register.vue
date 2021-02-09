@@ -282,6 +282,7 @@ export default {
         })
         .catch(function (error) {
           console.log(error);
+          did_test = '123456789'
         });
 
       return did_test;
