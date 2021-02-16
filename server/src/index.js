@@ -28,17 +28,23 @@ var server = null;
 if(useSSL){
   // set up server with ssl (https)
   const certDirPath = path.join(__dirname, '..', '..', '..', 'server', 'config', 'cert'); 
+  // console.log('certDirPath', certDirPath);
 
   server = https.createServer({
-    key: fs.readFileSync(path.normalize(certDirPath + path.sep + 'softmagic-dev-ca.key')),
-    cert: fs.readFileSync(path.normalize(certDirPath + path.sep + 'softmagic-dev-ca.crt'))
+    key: fs.readFileSync(path.normalize(certDirPath + path.sep + 'softmagic.local.key')),
+    cert: fs.readFileSync(path.normalize(certDirPath + path.sep + 'softmagic.local.crt')),
+    rejectUnauthorized: false
+    // requestCert: false
   }, app).listen(port);
+
+  app.setup(server);
 }else{
   // set up server without ssl (http)
-  server = http.createServer(app).listen(port);
+  // server = http.createServer(app).listen(port);
+  server = app.listen(port);
 }
 
-app.setup(server);
+
 
 
 process.on('unhandledRejection', (reason, p) =>

@@ -30,25 +30,25 @@ const whitelist = [app.get('client_url')] || [process.env.client_url] ;
 
 // const whitelist = ['http://172.27.42.206:8085', 'http://localhost:8085','http://localhost:8080', 'http://172.27.42.184:8085','http://localhost:8200', 'http://172.27.42.206:8085'];
 
-// console.log('whitelist : ', whitelist);
-// const corsOptions = {
-//   origin: (origin, callback) => {
-//     console.log('origin : ', origin);
-//     if (whitelist.indexOf(origin) !== -1) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS: ' + origin));
-//     }
-//   },
-//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//   allowedHeaders: ['Content-Type', 'Authorization'],
-//   credentials: true,
-//   preflightContinue: false,
-//   optionsSuccessStatus: 204,
-// };
+console.log('whitelist : ', whitelist);
+const corsOptions = {
+  origin: (origin, callback) => {
+    // if (whitelist.indexOf(origin) !== -1) { 
+    if (!origin || whitelist.indexOf(origin) !== -1) { //test
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS: ' + origin));
+    }
+  },
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
 app.use(helmet());
-// app.options('*', cors(corsOptions));
-// app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+app.use(cors(corsOptions));
 
 app.use(compress());
 app.use(express.json());

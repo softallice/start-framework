@@ -29,6 +29,8 @@ services:
     restart: always
     ports:
       - 3030:3030
+    volumes:
+      - ./nginx//keys/tls:/usr/server/config/cert
     depends_on:
       - mongo
       - postgresql
