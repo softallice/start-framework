@@ -282,11 +282,12 @@ export default {
         })
         .catch(function (error) {
           console.log(error);
-          did_test = '123456789'
+          did_test = JSON.stringify({"did1":'123456789'})
         });
 
       return did_test;
     },
+    
     // firebase token create and test
     getPushToken: async function () {
       var pushToken;

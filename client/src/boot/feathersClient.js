@@ -9,6 +9,7 @@ import Vue from "vue";
 // const restClient = rest("http://localhost:3030");
 // const restClient = rest("http://172.27.42.206:3030");
 const restClient = rest("https://172.27.42.206:3030");
+// const restClient = rest("https://server.softmagic.local");
 
 const feathersClient = feathers()
   .configure(restClient.axios(axiosInstance))

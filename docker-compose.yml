@@ -6,6 +6,7 @@ services:
     #   - mongodb_container:/data/db
     volumes:
       - ./nginx//keys/tls:/etc/nginx/certs
+      # - ./nginx/client/log:/var/log/nginx:ro 
     environment:
       - VIRTUAL_HOST=client.softmagic.local
       # - VIRTUAL_PORT=8085

@@ -1,18 +1,6 @@
-# Copyright Softmagic. All Rights Reserved.
-#
-# SPDX-License-Identifier: Apache-2.0
-
-# FROM nginx:latest
-# LABEL client web
-
-
-# COPY dist/spa/ /usr/share/nginx/www/
-# COPY nginx/nginx.conf.template /etc/nginx/templates/
-# COPY nginx.conf /etc/nginx/nginx.conf
 FROM alpine:latest
 
-COPY nginx/GeoLite2-Country.mmdb /usr/share/geoip/
-
+COPY GeoLite2-Country.mmdb /usr/share/geoip/
 
 # ngx_http_geoip2_module & libmaxminddb installation
 
@@ -200,10 +188,8 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
     && chmod 755 -R /usr/share/nginx \
     && chmod 755 -R /var/www
 
-COPY nginx/nginx.conf /etc/nginx/nginx.conf
-COPY nginx/vh-default.conf /etc/nginx/conf.d/default.conf
-COPY dist/spa/ /usr/share/nginx/html/
-
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY vh-default.conf /etc/nginx/conf.d/default.conf
 USER nginx
 EXPOSE 80 443
 STOPSIGNAL SIGTERM
