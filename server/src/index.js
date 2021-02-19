@@ -33,8 +33,8 @@ if(useSSL){
   server = https.createServer({
     key: fs.readFileSync(path.normalize(certDirPath + path.sep + 'softmagic.local.key')),
     cert: fs.readFileSync(path.normalize(certDirPath + path.sep + 'softmagic.local.crt')),
-    rejectUnauthorized: false
-    // requestCert: false
+    rejectUnauthorized: false,
+    requestCert: false
   }, app).listen(port);
 
   app.setup(server);

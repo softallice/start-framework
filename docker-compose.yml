@@ -10,8 +10,8 @@ services:
     environment:
       - VIRTUAL_HOST=client.softmagic.local
       # - VIRTUAL_PORT=8085
-      - TLS_CERT=/etc/nginx/certs/softmagic.local.crt
-      - TLS_KEY=/etc/nginx/certs/softmagic.local.key
+      # - TLS_CERT=/etc/nginx/certs/softmagic.local.crt
+      # - TLS_KEY=/etc/nginx/certs/softmagic.local.key
     ports:
       - 8085:80
     depends_on:
