@@ -145,6 +145,54 @@ const routes = [
     ]
   },
   {
+    path: "/Mobile",
+    component: () => import("layouts/AppMainLayout.vue"),
+    children: [
+      {
+        path: "",
+        name: "MobileHome",
+        icon: 'home',
+        component: () => import("pages/vaccination/Vaccination.vue"),
+        meta: { requiresPin: true }
+        // meta: { requiresAuth: true, requiresAdmin: true }
+        // meta: { requiresAuth: true }
+        
+      },
+      {
+        path: "/Mobile/PinCheck",
+        name: "PinCheck",
+        component: () => import("pages/PinCheck.vue")
+      },
+      {
+        path: "/Service",
+        name: "Service",
+        icon: 'dashboard',
+        component: () => import("pages/credential/Credential.vue"),
+        meta: { requiresPin: true }
+      },
+      {
+        path: "/MobileIndex",
+        name: "MobileIndex",
+        icon: 'nights_stay',
+        component: () => import("pages/MobileIndex.vue"),
+        meta: { requiresPin: true }
+      },
+      {
+        path: "/More",
+        name: "More",
+        icon: 'more_horiz',
+        component: () => import("pages/credential/Credential.vue"),
+        meta: { requiresPin: true }
+      },
+      {
+        path: '/Mobile/MQrReader', 
+        name: "MQrReader",
+        component: () => import('pages/mobile/MQrReader.vue'),
+        meta: { requiresPin: true }
+      },
+    ]
+  },
+  {
     path: '/Lock',
     component: () => import('pages/LockScreen.vue')
   },

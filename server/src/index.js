@@ -21,14 +21,15 @@ const app = require('./app');
 const port = app.get('port');
 
 
-
 const useSSL = app.get('ssl');
 var server = null;
+console.log('useSSL', useSSL);
 
 if(useSSL){
   // set up server with ssl (https)
   const certDirPath = path.join(__dirname, '..', '..', '..', 'server', 'config', 'cert'); 
-  // console.log('certDirPath', certDirPath);
+  console.log('Start Https');
+  console.log('certDirPath', certDirPath);
 
   server = https.createServer({
     key: fs.readFileSync(path.normalize(certDirPath + path.sep + 'softmagic.local.key')),
@@ -41,6 +42,7 @@ if(useSSL){
 }else{
   // set up server without ssl (http)
   // server = http.createServer(app).listen(port);
+  console.log('Start Http');
   server = app.listen(port);
 }
 

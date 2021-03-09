@@ -1,0 +1,50 @@
+version: '3.3'
+services:
+  server:
+    image: node:lts-alpine
+    working_dir: /server
+    volumes:
+      - ./server:/server
+    ports:
+      - 3030:3030
+    depends_on:
+      - mongo
+      - postgresql
+    # NODE_ENV variable is used by feathersjs to determine which config
+    # file to merge with the default.json file. Update as needed.
+    environment:
+      NODE_ENV: dev
+    command: >
+      sh -c "npm install && npm run dev"
+    networks:
+      - demo-net
+  
+  postgresql:
+    image: frodenas/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USERNAME=myuser
+      - POSTGRES_PASSWORD=mypassword
+      - POSTGRES_DBNAME=mydb
+      - POSTGRES_EXTENSIONS=citext
+    volumes:
+      - postgresql_container:/var/lib/postgresql/data
+    networks:
+        - demo-net
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_container:/data/db
+    networks:
+      - demo-net
+
+volumes:
+  mongodb_container:
+  postgresql_container:
+
+networks:
+  demo-net:

@@ -6,6 +6,7 @@ import authvuex from "./store.auth";
 import account from "./account";
 import admin from "./admin";
 import notifications from "./notifications"
+import pincode from "./pincode"
 
 const requireModule = require.context(
   // The path where the service modules live
@@ -38,7 +39,8 @@ export default function(/* { ssrContext } */) {
     modules: {
       account,
       admin,
-      notifications
+      notifications,
+      pincode
     },
 
     // enable strict mode (adds overhead!)

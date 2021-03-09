@@ -40,6 +40,14 @@ export default async ({ router, store }) => {
     } else {
       next();
     }
+
+    if (to.meta.requiresPin) {
+      if (LocalStorage.getItem("pass-pincode")) {
+        next()
+      } else {
+        next("/mobile/pincheck")
+      }
+    }
     //next();
   });
 };
