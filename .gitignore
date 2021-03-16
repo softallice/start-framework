@@ -28,6 +28,7 @@ node_modules
 nginx/config
 nginx/keys
 
+20210316022718-AP_TERMS.js
 
 # Users Environment Variables
 .lock-wscript
