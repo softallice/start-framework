@@ -5,6 +5,10 @@ const helmet = require('helmet');
 const cors = require('cors');
 const logger = require('./logger');
 
+const dotenv= require('dotenv');
+
+dotenv.config();
+
 const feathers = require('@feathersjs/feathers');
 const configuration = require('@feathersjs/configuration');
 const express = require('@feathersjs/express');
@@ -28,7 +32,7 @@ app.configure(configuration());
 // Enable security, CORS, compression, favicon and body parsing
 const whitelist = [app.get('client_url')] || [process.env.client_url] ;
 
-// const whitelist = ['https://client.softmagic.local','https://172.27.42.206:8085','https://172.27.42.206', 'https://172.27.42.206:3030']//, 'http://localhost:8085','http://localhost:8080', 'http://172.27.42.184:8085','http://localhost:8200', 'http://172.27.42.206:8085'];
+// const whitelist = ['http:localhost:3030','http://172.27.42.206:8085','https://172.27.42.206', 'https://172.27.42.206:3030']//, 'http://localhost:8085','http://localhost:8080', 'http://172.27.42.184:8085','http://localhost:8200', 'http://172.27.42.206:8085'];
 
 console.log('whitelist : ', whitelist);
 const corsOptions = {
@@ -49,6 +53,7 @@ const corsOptions = {
 app.use(helmet());
 app.options('*', cors(corsOptions));
 app.use(cors(corsOptions));
+
 
 app.use(compress());
 app.use(express.json());

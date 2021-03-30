@@ -16,17 +16,17 @@ module.exports = {
           primaryKey: true,
           autoIncrement: true
         },
-        first_name: {
+        name: {
           type: Sequelize.STRING(100),
           allowNull: true,
           unique: false
         },
-        last_name: {
+        position: {
           type: Sequelize.STRING(100),
           allowNull: true,
           unique: false
         },
-        title: {
+        avatar: {
           type: Sequelize.STRING(100),
           allowNull: true,
           unique: false
@@ -36,16 +36,35 @@ module.exports = {
           allowNull: true,
           unique: false
         },
+        company_email: {
+          type: Sequelize.STRING(100),
+          allowNull: true,
+          unique: false
+        },
+        website: {
+          type: Sequelize.STRING(100),
+          allowNull: true,
+          unique: false
+        },
         phone: {
           type: Sequelize.STRING(100),
           allowNull: true,
           unique: false
         },
-        status_cd: {
+        secondary_phone: {
+          type: Sequelize.STRING(100),
+          allowNull: true,
+          unique: false
+        },
+        address: {
+          type: Sequelize.STRING(100),
+          allowNull: true,
+          unique: false
+        },
+        favorite: {
           type: Sequelize.STRING,
           allowNull: true,
-          unique: false,
-          defaultValue: "active"
+          unique: false
         },
         createdAt: {
           type: Sequelize.DATE,

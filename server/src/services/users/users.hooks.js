@@ -7,6 +7,8 @@ const { setField } = require('feathers-authentication-hooks');
 const verifyHooks = require('feathers-authentication-management').hooks;
 const accountService = require('../auth-management/notifier');
 
+console.log('user-hook')
+
 const {
   disallow,
   iff,
@@ -33,6 +35,7 @@ const lastname = Joi.string()
   .pattern(new RegExp('^[a-zA-Z0-9 ]{2,30}$'))
   .required();
 
+// const password = Joi.string().trim().min(0).max(30).required();
 const password = Joi.string().trim().min(2).max(30).required();
 
 const email = Joi.string().email({
@@ -212,3 +215,40 @@ module.exports = {
     remove: [],
   },
 };
+
+// test
+// const { authenticate } = require('@feathersjs/authentication').hooks;
+
+
+// module.exports = {
+//   before: {
+//     all: [],
+//     find: [authenticate('jwt')],
+//     get: [authenticate('jwt')],
+//     create: [],
+//     update: [authenticate('jwt')],
+//     patch: [authenticate('jwt')],
+//     remove: [authenticate('jwt')],
+//   },
+
+//   after: {
+//     all: [
+//     ],
+//     find: [],
+//     get: [],
+//     create: [],
+//     update: [],
+//     patch: [],
+//     remove: [],
+//   },
+
+//   error: {
+//     all: [],
+//     find: [],
+//     get: [],
+//     create: [],
+//     update: [],
+//     patch: [],
+//     remove: [],
+//   },
+// };

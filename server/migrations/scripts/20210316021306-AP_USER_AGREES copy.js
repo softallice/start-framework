@@ -2,49 +2,24 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable('ap_terms', {
+    return queryInterface.createTable('ap_user_agrees', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
+      },
+      email: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+        unique: false,
       },
       terms_type_cd: {
         type: Sequelize.STRING(2),
         allowNull: true,
         unique: false,
       },
-      terms_nm: { 
-        type: Sequelize.STRING(50), 
-        allowNull: true, 
-        unique: false 
-      },
       terms_ver: { 
         type: Sequelize.STRING(4), 
-        allowNull: true, 
-        unique: false 
-      },
-      essen_yn: { 
-        type: Sequelize.STRING(1), 
-        allowNull: true, 
-        unique: false 
-      },
-      step_gbcd: { 
-        type: Sequelize.STRING(2), 
-        allowNull: true, 
-        unique: false 
-      },
-      use_org_no: {
-        type: Sequelize.STRING(10),
-        allowNull: true,
-        unique: false,
-      },
-      terms_conts: { 
-        type: Sequelize.TEXT, 
-        allowNull: true, 
-        unique: false 
-      },
-      terms_conts_pdf: { 
-        type: Sequelize.BLOB, 
         allowNull: true, 
         unique: false 
       },
@@ -67,6 +42,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('ap_terms');
+    return queryInterface.dropTable('ap_user_agrees');
   },
 };

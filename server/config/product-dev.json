@@ -33,8 +33,9 @@
       "passwordField": "password"
     },
     "oauth": {
-      "redirect": "/",
+      "redirect": "http://localhost:8080/login",
       "google": {
+        "redirect_uri": "http://localhost:3030/oauth/google/callback",
         "key": "<google oauth key>",
         "secret": "<google oauth secret>",
         "scope": ["email", "profile", "openid"]
