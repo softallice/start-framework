@@ -199,7 +199,7 @@
 </template>
 
 <script>
-
+import axiosInstance from "../boot/axios";
 export default {
   name: "Contact",
   components: {
@@ -223,50 +223,6 @@ export default {
           secondary_phone: '+9910101010',
           address: 'BB 101 Om Sai Residency Palsana'
         },
-        {
-          name: 'Razvan Stoenescu',
-          position: 'Developer',
-          avatar: 'https://cdn.quasar.dev/team/razvan_stoenescu.jpeg',
-          email: 'mailto:razvan@quasar.dev',
-          company_email: 'mailto:razvan@quasar.dev',
-          website: 'https://github.com/rstoenescu',
-          phone: '+1-004-658-0042',
-          secondary_phone: '(331) 009-4655 x3147',
-          address: '92290 Lisa Cove'
-        },
-        {
-          name: 'Jeff Galbraith',
-          position: 'Developer',
-          avatar: 'https://cdn.quasar.dev/team/jeff_galbraith.jpg',
-          email: 'mailto:jeff@quasar.dev',
-          company_email: 'mailto:jeff@quasar.dev',
-          website: 'http://jeffgalbraith.dev/',
-          phone: '175.718.4633 x878',
-          secondary_phone: '175.718.4633 x878',
-          address: 'Calgary, Canada'
-        },
-        {
-          name: 'Brunhilde Panswick',
-          position: 'Administrator',
-          avatar: 'https://cdn.quasar.dev/img/avatar2.jpg',
-          email: 'test.@quasar.dev',
-          company_email: 'test.@quasar.dev',
-          website: 'http://test1.dev/',
-          phone: '175.718.4633 x878',
-          secondary_phone: '175.718.4633 x878',
-          address: 'Calgary, Canada'
-        },
-        {
-          name: 'Winfield Stapforth',
-          position: 'Administrator',
-          avatar: 'https://cdn.quasar.dev/img/avatar6.jpg',
-          email: 'test2.@quasar.dev',
-          company_email: 'test.@quasar.dev',
-          website: 'http://test2.dev/',
-          phone: '175.718.4633 x878',
-          secondary_phone: '175.718.4633 x878',
-          address: 'Calgary, Canada'
-        },
 
       ],
       favorites_list: [
@@ -280,29 +236,7 @@ export default {
           phone: '+9910101010',
           secondary_phone: '+9910101010',
           address: 'BB 101 Om Sai Residency Palsana'
-        },
-        {
-          name: 'Razvan Stoenescu',
-          position: 'Developer',
-          avatar: 'https://cdn.quasar.dev/team/razvan_stoenescu.jpeg',
-          email: 'mailto:razvan@quasar.dev',
-          company_email: 'mailto:razvan@quasar.dev',
-          website: 'https://github.com/rstoenescu',
-          phone: '+1-004-658-0042',
-          secondary_phone: '(331) 009-4655 x3147',
-          address: '92290 Lisa Cove'
-        },
-        {
-          name: 'Jeff Galbraith',
-          position: 'Developer',
-          avatar: 'https://cdn.quasar.dev/team/jeff_galbraith.jpg',
-          email: 'mailto:jeff@quasar.dev',
-          company_email: 'mailto:jeff@quasar.dev',
-          website: 'http://jeffgalbraith.dev/',
-          phone: '175.718.4633 x878',
-          secondary_phone: '175.718.4633 x878',
-          address: 'Calgary, Canada'
-        },
+        }
       ],
       selected_contact: {},
       detail_list: [
@@ -345,16 +279,46 @@ export default {
       ]
     }
   },
+  created: async function () {
+    console.log('mount getContact')
+        await this.getContact();
+        await this.getContactFavorite();
+
+        if (!this.$q.screen.lt.sm) {
+        this.selected_contact = this.contacts_list[0];
+    }
+  },
   methods: {
     onResize(size) {
       this.size = size
     },
+    getContact: async function () {
+      console.log('getContact');
+      axiosInstance.get("/contacts").then((Response)=>{
+          this.contacts_list = Response.data.data;  
+          // console.log('contacts_list', this.contacts_list)                     
+          // console.log('contacts_list>>>>>>>>>>>>>>>>>>>>>>>>>>', this.contacts_list.length)    
+      }).catch((Error)=>{
+          console.log(Error);
+      });
+    },
+    getContactFavorite: async function () {
+      // console.log('getContact');
+      axiosInstance.get("/contacts?favorite=1").then((Response)=>{
+          this.favorites_list = Response.data.data;   
+          // console.log('favorites_list',this.favorites_list)                     
+      }).catch((Error)=>{
+          console.log(Error);
+      });
+    },
   },
-  created() {
-    if (!this.$q.screen.lt.sm) {
-      this.selected_contact = this.contacts_list[0];
-    }
-  }
+  // created() {
+  //   await this.getContact();
+  //   await this.getContactFavorite();
+  //   if (!this.$q.screen.lt.sm) {
+  //     this.selected_contact = this.contacts_list[0];
+  //   }
+  // }
 }
 </script>
 

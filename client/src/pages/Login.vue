@@ -81,7 +81,7 @@
 <script>
 import { mapState, mapActions } from "vuex";
 import { required, minLength, email } from "vuelidate/lib/validators";
-import { Notify } from "quasar";
+import { Notify, openURL } from "quasar";
 
 export default {
   data() {
@@ -137,7 +137,7 @@ export default {
             color: "negative"
           });
         });
-    }
+    },
   }
 };
 </script>

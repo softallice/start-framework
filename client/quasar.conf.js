@@ -80,9 +80,9 @@ module.exports = function(/* ctx */) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
     devServer: {
-      https: true,
-      key: fs.readFileSync('./nginx/keys/tls/softmagic.local.key'),
-      cert: fs.readFileSync('./nginx/keys/tls/softmagic.local.crt'),
+      https: false,
+      // key: fs.readFileSync('./nginx/keys/tls/softmagic.local.key'),
+      // cert: fs.readFileSync('./nginx/keys/tls/softmagic.local.crt'),
 
       port: 8085,
       open: false // opens browser window automatically

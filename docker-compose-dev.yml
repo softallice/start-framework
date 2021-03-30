@@ -29,7 +29,7 @@ services:
     environment:
       NODE_ENV: dev
     command: >
-      sh -c "npm install && npm run dev"
+      sh -c "npm install && npm run dev-test"
     networks:
       - demo-net
   

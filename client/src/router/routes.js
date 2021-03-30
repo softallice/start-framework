@@ -217,6 +217,10 @@ const routes = [
     component: () => import('pages/LockScreen-2.vue')
   },
   {
+    path: '/Consent',
+    component: () => import('pages/consent/Consent.vue')
+  },
+  {
     path: "/admin",
     component: () => import("layouts/MainLayout.vue"),
     children: [

@@ -10,6 +10,13 @@ export async function login(email, password) {
   });
 }
 
+// google login 
+export async function loginWithGoogle() {
+  return feathersClient.service("auth").post({
+    strategy: "google"
+  })
+}
+
 export async function signup(firstname, lastname, email, password, did, pushToken) {
   return axiosInstance.post("/users", {
     firstname: firstname,
