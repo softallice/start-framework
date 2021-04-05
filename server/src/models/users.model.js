@@ -23,6 +23,7 @@ module.exports = function (app) {
       lastLoggedIn: { type: Date },
       team: { type: 'ObjectId', ref: 'Teams' },
       googleId: { type: String },
+      naverId: { type: String },
       isVerified: { type: Boolean },
       verifyToken: { type: String },
       verifyShortToken: { type: String },

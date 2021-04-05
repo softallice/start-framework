@@ -14,6 +14,10 @@
     * 암호화 정보 저장 관리 [HashiCorp-Vault](https://www.vaultproject.io/)
     * 개발 환경 및 배포 환경 [Docker](https://www.docker.com/)
     * 푸시 및 메시지 [Firebase](https://firebase.google.com/)
+
+### Architecure
+
+![Architecure](architecure.png)
 ### 기능 요소
 #### 화면 구성 요소 
 - 사용자 등록(Register User)
