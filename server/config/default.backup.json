@@ -18,14 +18,11 @@
   "authentication": {
     "entity": "user",
     "service": "users",
-    "secret": "a6b7AdhMhKhR1pnBNCOqSiGzKDg=",
-    "authStrategies": [
-      "jwt",
-      "local"
-    ],
+    "secret": "supersecret",
+    "authStrategies": ["jwt", "local", "oauth"],
     "jwtOptions": {
       "header": {
-        "typ": "access"
+        "type": "access"
       },
       "audience": "https://yourdomain.com",
       "issuer": "feathers",
@@ -40,26 +37,19 @@
       "redirect": "http://localhost:8085",
       "google": {
         "key": "GOOGLE_CLIENT_ID",
-        "secret": "GOOGLE_CLIENT_SECRET",
+        "secret": "GOOGLE_CLIENT_SERVER",
         "scope": ["email", "profile", "openid"]
       },
       "github": {
         "key": "GITHUB_CLIENT_ID",
-        "secret": "GITHUB_CLIENT_SECRET"
+        "secret": "GITHUB_CLIENT_SERVER"
       },
       "naver": {
         "authorize_url": "https://nid.naver.com/oauth2.0/authorize",
         "access_url": "https://nid.naver.com/oauth2.0/token",
         "key": "NAVER_CLIENT_ID",
-        "secret": "NAVER_CLIENT_SECRET",
-        "oauth": 2
-      },
-      "kakao": {
-        "authorize_url": "https://kauth.kakao.com/oauth/authorize",
-        "access_url": "https://kauth.kakao.com/oauth/token",
-        "key": "KAKAO_CLIENT_ID",
-        "secret": "KAKAO_CLIENT_SECRET",
-        "oauth": 2
+        "secret": "NAVER_CLIENT_SERVER",
+        "state": "RAMDOM_STATE"
       }
     }
   },

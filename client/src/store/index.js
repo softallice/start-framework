@@ -8,6 +8,8 @@ import admin from "./admin";
 import notifications from "./notifications"
 import pincode from "./pincode"
 
+import messages from '../services/messages/messages'
+
 const requireModule = require.context(
   // The path where the service modules live
   "../services/feathers-client",
@@ -35,7 +37,7 @@ Vue.use(FeathersVuex);
 
 export default function(/* { ssrContext } */) {
   const Store = new Vuex.Store({
-    plugins: [...servicePlugins, authvuex],
+    plugins: [...servicePlugins, authvuex, messages],
     modules: {
       account,
       admin,

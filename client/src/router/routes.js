@@ -22,6 +22,11 @@ const routes = [
         component: () => import("pages/Verify.vue")
       },
       {
+        path: '/Chat', 
+        component: () => import('pages/chat/Chat.vue'),
+        meta: { requiresAuth: true }
+      },
+      {
         path: "/account",
         name: "Account",
         component: () => import("pages/Account.vue"),

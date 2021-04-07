@@ -141,6 +141,15 @@
       :width="240"
     >
       <q-list>
+        <!-- Chat -->
+        <q-item to="/Chat" active-class="q-item-no-link-highlighting">
+          <q-item-section avatar>
+            <q-icon name="question_answer"/>
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Chat</q-item-label>
+          </q-item-section>
+        </q-item>
         <!-- vaccination -->
         <q-item to="/Vaccination" active-class="q-item-no-link-highlighting">
           <q-item-section avatar>

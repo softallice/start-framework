@@ -9,6 +9,7 @@ const cardinfos = require('./cardinfos/cardinfos.service.js');
 const vaccinations = require('./vaccinations/vaccinations.service.js');
 const agreeTerms = require('./agree-terms/agree-terms.service.js');
 const userAgrees = require('./user-agrees/user-agrees.service.js');
+const messages = require('./messages/messages.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
   app.configure(users);
@@ -22,4 +23,5 @@ module.exports = function (app) {
   app.configure(vaccinations);
   app.configure(agreeTerms);
   app.configure(userAgrees);
+  app.configure(messages);
 };

@@ -25,6 +25,23 @@
           target="_self"
         />
         <q-space />
+
+        <q-btn
+          block
+          outline color="primary" 
+          label="Kakao 계정으로 계속하기" 
+          type="a" 
+          :href="apiUrlKakao" 
+          target="_self"
+        />
+        <q-space />
+
+        <q-btn
+          outline color="primary" 
+          label="Google 계정으로 계속하기(client)" 
+          @click="googlelogin"
+        />
+        <q-space />
       </div>
 
         <q-separator />
@@ -124,7 +141,8 @@ export default {
         password: ""
       },
       apiUrlGoogle: apiUrl + '/oauth/google',
-      apiUrlNaver: apiUrl + '/oauth/naver'
+      apiUrlNaver: apiUrl + '/oauth/naver',
+      apiUrlKakao: apiUrl + '/oauth/kakao'
     };
   },
   validations: {
@@ -167,6 +185,14 @@ export default {
     }
   },
   methods: {
+    async googlelogin() {
+      // const accessToken = await this.$feathersClient.reAuthenticate()
+      // const accessToken = await this.$feathersClient.authentication.getAccessToken()
+      // console.log('accessToken', accessToken)
+      this.$store.dispatch('auth/authenticate', {
+          strategy: 'google'
+          })
+    },
     rnWebView() {
       if (window.ReactNativeWebView) {
         // 모바일이라면 모바일의 카메라 권한을 물어보는 액션을 전달합니다.
