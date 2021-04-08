@@ -1,9 +1,8 @@
 <template>
   <q-page class="flex column">
     <q-scroll-area
-      style="height: 600px;"
-      ref="chatArea" 
-      @scroll="scrollinfo" 
+      style="height: 600px; max-width: 300px;"
+      verticalPercentage= 0.9
     >
     <div class="q-pa-md column col justify-end">
        <main class="chat flex flex-column flex-1 clear" style="max-width:300px">
@@ -25,7 +24,6 @@ export default {
   name: 'message-list',
   data () {
     return {
-      scrollsize: 0
     }
   },
   props: {
@@ -34,24 +32,17 @@ export default {
     createMessage: Function
   },
   methods: {
-    // scrollToBottom () {
-    //   this.$nextTick(() => {
-    //     const node = this.$el.getElementsByClassName('chatArea')[0]
-    //     node.scrollTop = node.scrollHeight
-    //   })
-    // },
-    scrollinfo(info){ 
-      const size = info.verticalSize;
-      this.scrollsize = size;
+    scrollToBottom () {
+      this.$nextTick(() => {
+        const node = this.$el.getElementsByClassName('chat')[0]
+        node.scrollTop = node.scrollHeight
+      })
     }
   },
   watch: {
-    // messages () {
-    //   this.messages.length && this.scrollToBottom('chat')
-    // },
-    scrollsize: function(val){
-  		this.$refs.chatArea.setScrollPosition(val-600,100);
-	  }
+    messages () {
+      this.messages.length && this.scrollToBottom()
+    }
   },
   components: {
     ComposeMessage,

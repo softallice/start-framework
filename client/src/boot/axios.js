@@ -12,7 +12,7 @@ LoadingBar.setDefaults({
 // const axiosInstance = axios.create({ baseURL: "http://172.27.42.206:3030" });
 // const axiosInstance = axios.create({ baseURL: "https://server.softmagic.local" });
 // const axiosInstance = axios.create({ baseURL: "http://server.softmagic.local:3030" });
-const axiosInstance = axios.create({ baseURL: "http://localhost:3030" });
+const axiosInstance = axios.create({ baseURL: "http://172.27.42.206:3030" });
 
 axiosInstance.defaults.withCredentials = true;
 

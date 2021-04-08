@@ -24,6 +24,7 @@ module.exports = function (app) {
       team: { type: 'ObjectId', ref: 'Teams' },
       googleId: { type: String },
       naverId: { type: String },
+      avatar: { type: String },
       isVerified: { type: Boolean },
       verifyToken: { type: String },
       verifyShortToken: { type: String },

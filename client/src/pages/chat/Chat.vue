@@ -1,10 +1,10 @@
 <template>
 <q-page padding>
   <div class="row" v-if="user">
-      <div class="col">
+      <!-- <div class="col">
         <user-list :users="users"
         :logout="logout" />
-      </div>
+      </div> -->
       <div class="col" style="margin-top:50px; height:120px">
         <message-list :messages="messages.data"
         :findMessages="findUsers"
@@ -67,7 +67,7 @@ export default {
     })
   },
   components: {
-    'user-list': UserList,
+    // 'user-list': UserList,
     'message-list': MessageList
   }
 }

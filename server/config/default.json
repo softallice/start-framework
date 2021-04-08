@@ -8,8 +8,8 @@
   "smtp_user": "",
   "smtp_pw": "",
   "from_email": "no-reply@test.com",
-  "client_url": "http://localhost:8085",
-  "api_url": "http://localhost:3030",
+  "client_url": "http://172.27.42.206:8085",
+  "api_url": "http://172.27.42.206:3030",
   "smtp_host": "smtp.naver.com",
   "paginate": {
     "default": 10,
@@ -37,7 +37,7 @@
       "passwordField": "password"
     },
     "oauth": {
-      "redirect": "http://localhost:8085",
+      "redirect": "http://172.27.42.206:8085",
       "google": {
         "key": "GOOGLE_CLIENT_ID",
         "secret": "GOOGLE_CLIENT_SECRET",

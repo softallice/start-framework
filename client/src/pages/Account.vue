@@ -554,13 +554,14 @@ export default {
       return null;
     },
     currentDid() {
-      if (this.$store.state.auth.user) {
+      if (this.$store.state.auth.user.did) {
         return this.$store.state.auth.user.did.did;
+        
       }
       return null;
     },
     currentPushToken() {
-      if (this.$store.state.auth.user) {
+      if (this.$store.state.auth.user.pushToken) {
         return this.$store.state.auth.user.pushToken;
       }
       return null;

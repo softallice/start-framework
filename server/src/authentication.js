@@ -17,6 +17,7 @@ class GoogleStrategy extends OAuthStrategy {
       name: profile.name,
       firstname: profile.given_name,
       lastname: profile.family_name,
+      avatar: profile.picture
     };
   }
 
@@ -45,11 +46,17 @@ class GoogleStrategy extends OAuthStrategy {
 
 class NaverStrategy extends OAuthStrategy {
 
-  // async getEntityQuery(profile) {
-  //   return {
-  //     naverId: profile.response.id
-  //   };
-  // }
+  async getEntityQuery(profile) {
+    console.log('Naver getEntityQuery', profile)
+    return {
+      naverId: profile.response.id
+    };
+  }
+
+  async updateEntity(entity, profile, params) {
+
+    return super.updateEntity(entity, profile, params);
+  }
 
   // async getEntityQuery(query, _params) {
   //   console.log('query====================>', query)
@@ -63,8 +70,9 @@ class NaverStrategy extends OAuthStrategy {
 
   // async getPayload(authResult, params) {
   //   // Call original `getPayload` first
+    
   //   const payload = await super.getPayload(authResult, params)
-
+  //   console.log('payload',payload)
   //   const { user } = authResult
 
   //   return Object.assign(payload, {
@@ -79,12 +87,13 @@ class NaverStrategy extends OAuthStrategy {
     
     return {
       ...baseData,
-      // naverId: profile.response.id,
+      naverId: profile.response.id,
       profilePicture: profile.response.profile_image,
       email: profile.response.email,
       name: profile.response.name,
       firstname: profile.response.name,
       lastname: profile.response.name,
+      avatar: profile.response.profile_image
     };
   }
   
@@ -95,7 +104,7 @@ class NaverStrategy extends OAuthStrategy {
         return `http://localhost:8085/#access_token=${authResult.accessToken}`
         // return `http://localhost:8085`
     }
-    return 'http://localhost:3030/authenticate?error=OAuth%20Authentication%20not%20successful'
+    return 'http://localhost:8085/authenticate?error=OAuth%20Authentication%20not%20successful'
   
   }
 
@@ -112,7 +121,7 @@ class KakaoStrategy extends OAuthStrategy {
     if (authResult.accessToken) {
         return `http://localhost:8085/?access_token=${authResult.accessToken}`
     }
-    return 'http://localhost:3030/authenticate?error=OAuth%20Authentication%20not%20successful'
+    return 'http://localhost:8085/authenticate?error=OAuth%20Authentication%20not%20successful'
   
   }
 

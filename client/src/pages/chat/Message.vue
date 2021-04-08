@@ -1,13 +1,25 @@
 <template>
 <div class="q-pa-md row justify-center">
-    <div style="width: 100%; max-width: 400px">
-      <q-chat-message
+    <div v-if="message.user" style="width: 100%">
+      <q-chat-message v-if="message.user.email === $store.state.auth.user.email"
         sent
-      ><span>{{ message.user.email }}</span>
+        :avatar="message.user.avatar ? message.user.avatar : `https://cdn.quasar.dev/img/avatar5.jpg`"
+        :name="message.user.lastname"
+        bg-color="primary"
+        :text="[message.text]"
+        :stamp="DateMessage"
+        text-color="white"
+      >
+      <!-- <span>{{ message.user.email }}</span>
       <p>{{ DateMessage }}</p>
-      <p>{{ message.text }}</p></q-chat-message>
-      <q-chat-message
-      :text="['Received message']"
+      <p>{{ message.text }}</p> -->
+      </q-chat-message>
+      <q-chat-message v-else
+      :avatar="message.user.avatar ? message.user.avatar : `https://cdn.quasar.dev/img/avatar5.jpg`"
+      :name="message.user.lastname"
+      :text="[message.text]"
+      :stamp="DateMessage"
+      bg-color="amber-7"
       />
     </div>
   </div>

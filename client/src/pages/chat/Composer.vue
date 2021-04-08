@@ -1,7 +1,17 @@
 <template>
   <form class="flex flex-row flex-space-between" id="send-message" v-on:submit.prevent>
-    <q-input square standout v-model="newMessage" label="Your message" name="text" />
-    <button class="button-primary" type="submit" @click="addMessage">Send</button>
+    <q-input class="full-width" square standout v-model="newMessage" label="Your message" name="text">
+      <template v-slot:before>
+        <q-avatar>
+          <img src="https://cdn.quasar.dev/img/avatar5.jpg">
+        </q-avatar>
+      </template>
+
+    <!-- <button class="button-primary" type="submit" @click="addMessage">Send</button> -->
+      <template v-slot:after>
+        <q-btn round dense flat icon="send" type="submit" @click="addMessage" />
+      </template>
+    </q-input>
   </form>
 </template>
 
